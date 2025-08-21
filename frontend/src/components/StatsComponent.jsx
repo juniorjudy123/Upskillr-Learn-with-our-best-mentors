@@ -14,7 +14,7 @@ const StatsComponent = () => {
 		{ language: "🌎Javascript", count: "300 teachers" },
 		{ language: "🎨CSS", count: "50 teachers" },
 		{ language: "♾️Devops", count: "10 teachers" },
-		{ language: "Cloud-⤻ͣmazon", count: "5,222 teachers" },
+		{ language: "Cloud🔥", count: "5,222 teachers" },
 		{ language: "⚛️React", count: "500 teachers" },
 		{ language: "🗣️Language mentors", count: "300 teachers" },
 	]

@@ -11,7 +11,7 @@ const MovingBanner = () => {
 
 				<span className="mx-20 text-lg ">👨🏻‍🏫Expert tutors available 24/7!</span>
 				<span className="mx-20 text-lg ">
-					🎖️🎖️Exclusive Certifications in collaboration with IIT's
+					🎖️Exclusive Certifications in collaboration with IIT's
 				</span>
 			</Marquee>
 		</>
