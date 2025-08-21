@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/* Add to your CSS file (or Tailwind's @apply in your tailwind.config.js if you're using Tailwind) */
+
+.icon-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh; /* Center the icon vertically and horizontally */
+}
+
+.target-icon {
+	transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+	/* Subtle shadow */
+	box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Hover effects */
+.target-icon:hover {
+	transform: scale(1.1); /* Slightly increase size on hover */
+	color: #f39c12; /* Change color to a bright yellow */
+	box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8),
+		0px 0px 50px rgba(243, 156, 18, 0.5);
+}
+
+/* Optionally, you can add a glow effect to the icon */
+.target-icon:active {
+	color: #f39c12; /* Ensure yellow color stays when clicked */
+	box-shadow: 0px 0px 25px rgba(243, 156, 18, 0.8),
+		0px 0px 60px rgba(255, 255, 255, 0.5);
+}
