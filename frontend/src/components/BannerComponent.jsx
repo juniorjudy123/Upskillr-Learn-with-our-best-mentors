@@ -7,20 +7,6 @@ import app_logo from "../assets/app_logo.png"
 function BannerComponent() {
 	return (
 		<>
-			{/* Top Black Bar */}
-			{/* <div className="w-full bg-black text-white py-2 h-16 flex items-center justify-center">
-				<img
-					src={mii_logo}
-					alt="help_logo"
-					className="w-8 h-8 mx-2 rounded-full shadow-md  border-1 transform hover:scale-110 transition-transform duration-300 ease-in-out hover:shadow-[0_0_15px_rgba(255,105,180,0.6)]
-"
-				/>
-				<p className="text-center text-sm font-semibold">
-					{" "}
-					Digital India , power to empower.
-				</p>
-			</div> */}
-
 			{/* Pink Banner */}
 			<div className="w-full bg-zinc-300 text-black pb-4 h-[600px]">
 				{/* Navbar */}

@@ -1,31 +1,3 @@
-// import BannerComponent from "./components/BannerComponent"
-// import BottomBannerComponent from "./components/BottomBannerComponent"
-// import FooterComponent from "./components/FooterComponent"
-
-// import MovingBanner from "./components/MovingBannercomponent"
-// import ProfileCardComponent from "./components/ProfileCardComponent"
-// import StatsComponent from "./components/StatsComponent"
-// import WorkingComponent from "./components/WorkingComponent"
-
-// function App() {
-// 	return (
-// 		<>
-// 			<MovingBanner />
-
-// 			<BannerComponent />
-// 			<StatsComponent />
-// 			<WorkingComponent />
-// 			<BottomBannerComponent />
-
-// 			<FooterComponent />
-// 		</>
-// 	)
-// }
-
-// export default App
-
-
-
 import React, { useEffect, useState } from 'react';
 
 import BannerComponent from "./components/BannerComponent"
@@ -41,9 +13,13 @@ function App() {
 
 	useEffect(() => {
 		fetch("http://localhost:8000/api/test/")
-			.then((res) => res.json())
-			.then((data) => setApiMessage(data.message))
-			.catch((err) => console.error("Error fetching from Django:", err));
+  .then(res => res.json())
+  .then(data => {
+    console.log("Data from API:", data);
+    setApiMessage(data.message);
+  })
+  .catch(err => console.error("Error fetching from Django:", err));
+
 	}, []);
 
 	return (
