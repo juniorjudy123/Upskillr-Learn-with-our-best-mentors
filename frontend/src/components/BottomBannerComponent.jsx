@@ -33,9 +33,9 @@ const BottomBannerComponent = () => {
 			</button>
 
 			<div className="text-center">
-				<h2 className="text-6xl font-extrabold mb-4">
+				<h2 className=" bottom_banner  mb-4">
 					Lessons you’ll love.
-					<span className="text-indigo-500"> Guaranteed</span>
+					<span className="text-indigo-600  bottom_banner"> Guaranteed</span>
 				</h2>
 
 				<p className="text-lg font-medium">

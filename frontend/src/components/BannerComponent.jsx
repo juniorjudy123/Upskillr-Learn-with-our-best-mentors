@@ -1,8 +1,9 @@
 import React from "react"
 import logo from "../assets/help_logo.png"
 import centerImage from "../assets/center_banner_img.avif"
-import app_logo from "../assets/app_logo.png"
+
 import { useNavigate } from "react-router-dom"
+import LogoComponent from "./LogoComponent"
 
 function BannerComponent() {
 	const navigate = useNavigate()
@@ -19,41 +20,21 @@ function BannerComponent() {
 				<nav className="flex items-center justify-between p-5 max-w-full">
 					{/* Left Side */}
 					<div className="flex items-center space-x-6">
-						<img
-							src={app_logo}
-							alt="app_logo"
-							className="w-11 h-11 mx-3 rounded-full shadow-lg shadow-pink-500/50 border-2 border-white transform hover:scale-110 transition-transform duration-300 ease-in-out hover:shadow-[0_0_15px_rgba(255,105,180,0.6)]
-"
-						/>
-						{/* <div className="text-2xl font-bold ">Upskillr</div> */}
-
-						<div className="text-3xl font-extrabold tracking-wide">
-							<span className=" drop-shadow-md">Up</span>
-							<span className="">skillr</span>
-						</div>
+						<LogoComponent />
 
 						<ul className="flex space-x-6 mx-10">
 							<li>
-								<a
-									href="/"
-									className="hover:underline text-xl font-sans font-semibold"
-								>
+								<a href="/" className="hover:underline nav-bar">
 									Find Mentors
 								</a>
 							</li>
 							<li>
-								<a
-									href="/about"
-									className="hover:underline text-lg font-serif font-semibold"
-								>
+								<a href="/about" className="hover:underline nav-bar">
 									Become a mentor
 								</a>
 							</li>
 							<li>
-								<a
-									href="/contact"
-									className="hover:underline text-lg font-semibold font-serif"
-								>
+								<a href="/contact" className="hover:underline nav-bar">
 									Proven progress
 								</a>
 							</li>

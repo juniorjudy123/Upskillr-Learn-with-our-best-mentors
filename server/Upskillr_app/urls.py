@@ -1,8 +1,7 @@
 # Upskillr_app/urls.py
-
 from django.urls import path
-from .views import test_api
+from .views import UserRegistrationView
 
 urlpatterns = [
-    path('test/', test_api, name='test_api'),
+    path('register/', UserRegistrationView.as_view(), name='register'),  # This maps to /api/register/
 ]
