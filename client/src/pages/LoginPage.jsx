@@ -7,9 +7,9 @@ function LoginPage() {
 	return (
 		<div className="flex h-screen">
 			<LoginLeftBanner />
-			{/* <SignUpformComponent /> */}
+			<SignUpformComponent />
 			{/* <MentorDisplayComponent /> */}
-			<SignInformComponent />
+			{/* <SignInformComponent /> */}
 		</div>
 	)
 }

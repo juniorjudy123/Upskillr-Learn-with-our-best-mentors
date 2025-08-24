@@ -2,60 +2,23 @@ import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 
 const SignUpformComponent = () => {
-	const [formData, setFormData] = useState({
-		name: "",
-		email: "",
-		password: "",
-		confirmPassword: "",
-		rememberMe: false,
-	})
+	const [username, setUsername] = useState("")
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
 
 	const navigate = useNavigate() // To handle programmatic navigation
-
-	const handleChange = (e) => {
-		const { name, value, type, checked } = e.target
-		setFormData((prevData) => ({
-			...prevData,
-			[name]: type === "checkbox" ? checked : value,
-		}))
-	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
 
-		// Check if password and confirmPassword match
-		if (formData.password !== formData.confirmPassword) {
-			alert("Passwords do not match!")
-			return
+		const userData = {
+			username,
+			email,
+			password,
 		}
-
-		// Send registration data to backend
-		fetch("http://localhost:8000/api/register/", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				username: formData.name,
-				email: formData.email,
-				password: formData.password,
-				confirm_password: formData.confirmPassword, // Or use another key for confirm password if required
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.message === "User registered successfully") {
-					// On success, redirect to login page
-					navigate("/login")
-				} else {
-					alert("Error: " + data.message) // Show error message if registration fails
-				}
-			})
-			.catch((error) => {
-				console.error("Error during registration:", error)
-				alert("An error occurred. Please try again.")
-			})
+		console.log("userData==>", userData)
 	}
+
 	return (
 		<div className="w-2/3 bg-white flex justify-center items-center">
 			<div className="w-full max-w-md p-8 relative">
@@ -82,48 +45,38 @@ const SignUpformComponent = () => {
 					</button>
 				</div>
 
-				<h2 className="text-3xl font-bold text-center mb-6 text-gray-800">
+				<h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
 					Sign Up
 				</h2>
 				<p className="text-center text-lg mb-6 text-gray-600">
-					Sign up to meet the best English tutors for you.
+					Sign up to meet the right mentor for you.
 				</p>
 
 				{/* Registration Form */}
+
 				<form onSubmit={handleSubmit} className="space-y-4">
 					{/* Name */}
 					<div>
-						<label
-							htmlFor="name"
-							className="block text-lg font-medium text-gray-700"
-						>
-							Name
-						</label>
 						<input
 							type="text"
 							id="name"
 							name="name"
-							value={formData.name}
-							onChange={handleChange}
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							placeholder="Username"
 							required
 							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
 					</div>
 
-					{/* Email */}
 					<div>
-						<label
-							htmlFor="email"
-							className="block text-lg font-medium text-gray-700"
-						>
-							Your email
-						</label>
 						<input
 							type="email"
 							id="email"
 							name="email"
-							value={formData.email}
-							onChange={handleChange}
+							placeholder="email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 							required
 							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
@@ -131,24 +84,19 @@ const SignUpformComponent = () => {
 
 					{/* Password */}
 					<div>
-						<label
-							htmlFor="password"
-							className="block text-lg font-medium text-gray-700"
-						>
-							Your password
-						</label>
 						<input
 							type="password"
 							id="password"
 							name="password"
-							value={formData.password}
-							onChange={handleChange}
+							value={password}
+							placeholder="password"
+							onChange={(e) => setPassword(e.target.value)}
 							required
 							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
 					</div>
 
-					{/* Confirm Password */}
+					{/* Confirm Password
 					<div>
 						<label
 							htmlFor="confirmPassword"
@@ -165,9 +113,9 @@ const SignUpformComponent = () => {
 							required
 							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
-					</div>
+					</div> */}
 
-					{/* Remember me checkbox */}
+					{/* Remember me checkbox
 					<div className="flex items-center space-x-2">
 						<input
 							type="checkbox"
@@ -180,14 +128,14 @@ const SignUpformComponent = () => {
 						<label htmlFor="rememberMe" className="text-sm text-gray-700">
 							Remember me
 						</label>
-					</div>
+					</div> */}
 
 					{/* Sign Up Button */}
 					<button
 						type="submit"
 						className="w-full py-2 bg-indigo-600 text-white font-bold rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
 					>
-						Continue or Sign up
+						Sign Up
 					</button>
 				</form>
 

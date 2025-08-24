@@ -2,7 +2,7 @@ import React from "react"
 import logo from "../assets/help_logo.png"
 import centerImage from "../assets/center_banner_img.avif"
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import LogoComponent from "./LogoComponent"
 
 function BannerComponent() {
@@ -88,14 +88,14 @@ function BannerComponent() {
 
 						{/* Help logo and Login */}
 						<div className="flex mx-3">
-							<a href="/login" className="flex items-center justify-center">
+							<Link to="/login" className="flex items-center justify-center">
 								<img
 									src={logo}
 									alt="help_logo"
 									className="w-5 h-5 mx-10 rounded-full shadow-md shadow-pink-500/50 border-2 border-white transform hover:scale-110 transition-transform duration-300 ease-in-out hover:shadow-[0_0_15px_rgba(255,105,180,0.6)]
 "
 								/>
-							</a>
+							</Link>
 
 							<button
 								type="button"

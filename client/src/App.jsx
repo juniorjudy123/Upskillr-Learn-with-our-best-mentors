@@ -1,14 +1,19 @@
 import { Routes, Route } from "react-router-dom"
 import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage"
+import { BrowserRouter } from "react-router-dom"
+import FooterComponent from "./components/FooterComponent"
 
 function App() {
 	return (
 		<>
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/login" element={<LoginPage />} />
-			</Routes>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/login" element={<LoginPage />} />
+				</Routes>
+				<FooterComponent />
+			</BrowserRouter>
 		</>
 	)
 }
