@@ -6,6 +6,8 @@ const SignUpformComponent = () => {
 	const [username, setUsername] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [message, setMessage] = useState("")
+	const [error, setError] = useState("")
 
 	const navigate = useNavigate() // To handle programmatic navigation
 
@@ -24,14 +26,27 @@ const SignUpformComponent = () => {
 				UserData
 			)
 			console.log("response", response.data)
-			console.log("Sign up successful")
+			setMessage("Registration successful!")
+			setError("") // clear error if previously set
+
+			setUsername("")
+			setEmail("")
+			setPassword("")
+
+			setTimeout(() => {
+				navigate("/login")
+			}, 2000)
 		} catch (error) {
-			console.log("registeration error", error.response.data)
+			console.log("registration error", error.response?.data || error.message)
+			setError(
+				error.response?.data?.detail || "Registration failed. Please try again."
+			)
+			setMessage("") // clear success message if previously set
 		}
 	}
 	return (
-		<div className="w-2/3 bg-white flex justify-center items-center">
-			<div className="w-full max-w-md p-8 relative">
+		<div className="w-full min-h-screen bg-white flex justify-center items-center px-6 ">
+			<div className="w-full max-w-xl bg-white border border-gray-200 rounded-xl shadow-xl p-16 relative">
 				{/* Back Arrow */}
 				<div className="absolute top-3 left-3">
 					<button
@@ -55,6 +70,21 @@ const SignUpformComponent = () => {
 					</button>
 				</div>
 
+				{/* Success Message */}
+				{message && (
+					<div className="text-green-600 text-center font-bold text-xl mb-4">
+						🎉
+						{message}
+					</div>
+				)}
+
+				{/* Error Message */}
+				{error && (
+					<div className="text-red-600 text-center font-bold text-xl  mb-4">
+						❌{error}
+					</div>
+				)}
+
 				<h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
 					Sign Up
 				</h2>
@@ -75,7 +105,7 @@ const SignUpformComponent = () => {
 							onChange={(e) => setUsername(e.target.value)}
 							placeholder="Username"
 							required
-							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full px-5 py-2 mt-2 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
 					</div>
 
@@ -88,7 +118,7 @@ const SignUpformComponent = () => {
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 							required
-							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full px-5 py-2 mt-2 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
 					</div>
 
@@ -102,7 +132,7 @@ const SignUpformComponent = () => {
 							placeholder="password"
 							onChange={(e) => setPassword(e.target.value)}
 							required
-							className="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full px-5 py-2 mt-2 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
 					</div>
 
