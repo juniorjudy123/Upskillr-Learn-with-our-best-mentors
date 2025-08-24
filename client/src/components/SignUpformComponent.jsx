@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
+import axios from "axios"
 
 const SignUpformComponent = () => {
 	const [username, setUsername] = useState("")
@@ -8,17 +9,26 @@ const SignUpformComponent = () => {
 
 	const navigate = useNavigate() // To handle programmatic navigation
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		const userData = {
+		const UserData = {
 			username,
 			email,
 			password,
 		}
-		console.log("userData==>", userData)
-	}
 
+		try {
+			const response = await axios.post(
+				"http://localhost:8000/api/v1/register/",
+				UserData
+			)
+			console.log("response", response.data)
+			console.log("Sign up successful")
+		} catch (error) {
+			console.log("registeration error", error.response.data)
+		}
+	}
 	return (
 		<div className="w-2/3 bg-white flex justify-center items-center">
 			<div className="w-full max-w-md p-8 relative">
