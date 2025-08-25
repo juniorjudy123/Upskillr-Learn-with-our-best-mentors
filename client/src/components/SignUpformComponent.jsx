@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import axios from "axios"
 
-const SignUpformComponent = () => {
+const SignUpformComponent = ({ onSwitch }) => {
 	const [username, setUsername] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -85,10 +85,10 @@ const SignUpformComponent = () => {
 					</div>
 				)}
 
-				<h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
-					Sign Up
+				<h2 className="text-3xl  black-text text-center mb-6 text-gray-800">
+					Sign up
 				</h2>
-				<p className="text-center text-lg mb-6 text-gray-600">
+				<p className="text-center text-lg  mb-6 text-gray-800">
 					Sign up to meet the right mentor for you.
 				</p>
 
@@ -180,17 +180,15 @@ const SignUpformComponent = () => {
 				</form>
 
 				{/* Login Link */}
-				<div className="text-center mt-4">
-					<p className="text-sm text-gray-600">
-						Already have an account?{" "}
-						<Link
-							to="/login"
-							className="text-indigo-600 hover:underline font-semibold"
-						>
-							Log in
-						</Link>
-					</p>
-				</div>
+				<p className="text-sm text-gray-600">
+					Already have an account?{" "}
+					<button
+						onClick={onSwitch}
+						className="text-indigo-600 hover:underline font-semibold"
+					>
+						Log in
+					</button>
+				</p>
 
 				{/* Terms and Privacy */}
 				<div className="text-center mt-4 text-sm text-gray-600">

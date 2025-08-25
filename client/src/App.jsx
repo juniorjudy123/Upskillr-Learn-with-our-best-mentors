@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage"
 import { BrowserRouter } from "react-router-dom"
 import FooterComponent from "./components/FooterComponent"
+import LoginFormComponent from "./components/LoginFormComponent"
 
 function App() {
 	return (
